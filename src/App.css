@@ -1,0 +1,46 @@
+.main {
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    height: 100vh;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    padding: 20px;
+    /* border: 2px solid #ccc; */
+
+}
+
+.date-picker {
+    flex: 1;
+}
+
+.button-container {
+    margin: 15%;
+    display: contents;
+    flex-wrap: wrap;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+
+}
+
+.btn {
+    flex: 0 0 13%;
+    margin-bottom: 10px;
+
+}
+
+
+.selected {
+    background-color: #106d04;
+    color: white;
+}

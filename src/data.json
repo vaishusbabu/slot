@@ -1,0 +1,71 @@
+{
+    "Status": true,
+    "ListWorkingHours": [
+        {
+            "Available": false,
+            "WorkDay": "Saturday",
+            "WorkStartTime": null,
+            "WorkEndTime": null
+        },
+        {
+            "Available": false,
+            "WorkDay": "Friday",
+            "WorkStartTime": null,
+            "WorkEndTime": null
+        },
+        {
+            "Available": true,
+            "WorkDay": "Sunday",
+            "WorkStartTime": "08:00",
+            "WorkEndTime": "17:00"
+        },
+        {
+            "Available": true,
+            "WorkDay": "Wednesday",
+            "WorkStartTime": "08:00",
+            "WorkEndTime": "17:00"
+        },
+        {
+            "Available": true,
+            "WorkDay": "Thursday",
+            "WorkStartTime": "08:00",
+            "WorkEndTime": "17:00"
+        },
+        {
+            "Available": true,
+            "WorkDay": "Monday",
+            "WorkStartTime": "09:00",
+            "WorkEndTime": "17:00"
+        },
+        {
+            "Available": true,
+            "WorkDay": "Tuesday",
+            "WorkStartTime": "09:00",
+            "WorkEndTime": "17:00"
+        }
+    ],
+    "ListBreakTime": [
+        {
+            "BreakFrom": "13:00",
+            "BreakTo": "14:00"
+        },
+        {
+            "BreakFrom": "15:00",
+            "BreakTo": "16:00"
+        }
+    ],
+    "ListBlockedDates": [
+        {
+            "BlockedStartDate": "2024-05-28",
+            "BlockedEndDate": "2024-05-29",
+            "BlockStartTime": "08:00",
+            "BlockEndTime": "17:00"
+        },
+        {
+            "BlockedStartDate": "2024-05-22",
+            "BlockedEndDate": "2024-05-22",
+            "BlockStartTime": "11:00",
+            "BlockEndTime": "12:00"
+        }
+    ]
+}
