@@ -10,6 +10,7 @@ function App() {
   const [workingHours, setWorkingHours] = useState([]);
   const [breakTimes, setBreakTimes] = useState([]);
   const [blockedDates, setBlockedDates] = useState([]);
+  // const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
     setWorkingHours(data.ListWorkingHours);
@@ -53,21 +54,17 @@ function App() {
         const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
         timeSlots.push(timeString);
       }
-
       currentTime = new Date(currentTime.getTime() + 15 * 60000); // Increment currentTime by 15 minutes
-
-    }
-    if (timeSlots.length === 0) {
-      timeSlots.push('No slots available');
     }
 
     return timeSlots;
   };
 
   const handleTimeSelection = (time) => {
-    setSelectedTime(time);
+    if (time !== 'No slots available') {
+      setSelectedTime(time);
+    }
   };
-
 
   const getWorkingHoursForSelectedDay = () => {
     if (!selectedDate) return [];
@@ -77,12 +74,8 @@ function App() {
 
     if (workingDay && workingDay.Available) {
       const generatedTimeSlots = generateTimeSlots(workingDay.WorkStartTime, workingDay.WorkEndTime);
-      if (generatedTimeSlots.length === 0) {
-        generatedTimeSlots.push('No slots available');
-      }
       return generatedTimeSlots;
-    }
-    else {
+    } else {
       return [];
     }
   };
@@ -101,25 +94,32 @@ function App() {
               minDate={new Date()}
               dateFormat="dd/MM/yyyy"
               open={true}
-
-              disabled={true}
+              inline
+            // readOnly={true}
+            // disabled={isDisabled}
             />
           </div>
           <div className="button-container">
-            {timeSlots.map((time, index) => (
-              <React.Fragment key={time}>
-                {index % 4 === 0 && <div className="button-row" />}
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark btn-lg ${selectedTime === time ? 'selected' : ''}`}
-                  onClick={() => handleTimeSelection(time)}
-                >
-                  {time}
-                </button>
-              </React.Fragment>
-            ))}
+            {timeSlots.length === 0 ? (
+              <button type="button" className="btn btn-outline-dark btn-lg" disabled>
+                No slots available
+              </button>
+            ) : (
+              timeSlots.map((time, index) => (
+                <React.Fragment key={time}>
+                  {index % 4 === 0 && <div className="button-row" />}
+                  <button
+                    type="button"
+                    className={`btn btn-outline-dark btn-lg ${selectedTime === time ? 'selected' : ''}`}
+                    onClick={() => handleTimeSelection(time)}
+                  >
+                    {time}
+                  </button>
+                </React.Fragment>
+              ))
+            )}
           </div>
-          {selectedTime && (
+          {selectedTime && selectedTime !== 'No slots available' && (
             <div className="selected-time">
               <p>Selected Time: {selectedTime}</p>
             </div>
