@@ -1,46 +1,61 @@
 .main {
     display: flex;
-    margin-left: 5%;
-    align-items: center;
-    height: 100vh;
+    flex-direction: row;
+    flex: 1 1 auto;
+
 }
 
 .container1 {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 400px;
+    margin-left: 30%;
+    margin-top: 7%;
+    width: 80%;
     padding: 20px;
-    /* border: 2px solid #ccc; */
-
 }
 
 .date-picker {
-    flex: 1;
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .button-container {
-    margin: 15%;
-    display: contents;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    margin-right: 30%;
+    width: 40%;
+    padding-left: 25px;
+    border: 2px solid #ccc;
+    margin-left: 2%;
+    /* Add a border */
+    height: 270px;
+    /* Adjust height to show only 4 rows */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
 }
 
 .button-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    /* Make sure it takes full width */
     margin-bottom: 10px;
-
 }
 
 .btn {
-    flex: 0 0 13%;
-    margin-bottom: 10px;
-
+    flex: 1;
+    margin: 5px;
 }
-
 
 .selected {
     background-color: #106d04;
     color: white;
+}
+
+
+.selected-time {
+    margin-top: 20px;
 }

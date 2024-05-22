@@ -66,6 +66,24 @@
             "BlockedEndDate": "2024-05-22",
             "BlockStartTime": "11:00",
             "BlockEndTime": "12:00"
+        },
+        {
+            "BlockedStartDate": "2024-05-30",
+            "BlockedEndDate": "2024-05-30",
+            "BlockStartTime": "14:00",
+            "BlockEndTime": "17:00"
+        },
+        {
+            "BlockedStartDate": "2024-05-22",
+            "BlockedEndDate": "2024-05-22",
+            "BlockStartTime": "08:00",
+            "BlockEndTime": "17:00"
+        },
+        {
+            "BlockedStartDate": "2024-06-02",
+            "BlockedEndDate": "2024-06-09",
+            "BlockStartTime": "10:00",
+            "BlockEndTime": "12:00"
         }
     ]
 }
