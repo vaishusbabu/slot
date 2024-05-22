@@ -10,7 +10,7 @@ function App() {
   const [workingHours, setWorkingHours] = useState([]);
   const [breakTimes, setBreakTimes] = useState([]);
   const [blockedDates, setBlockedDates] = useState([]);
-  // const [isDisabled, setIsDisabled] = useState(false);
+
 
   useEffect(() => {
     setWorkingHours(data.ListWorkingHours);
@@ -22,7 +22,7 @@ function App() {
     const formattedDate = date.toISOString().split('T')[0];
     return blockedDates.some(blockedDate => {
       if (blockedDate.BlockedStartDate <= formattedDate && formattedDate <= blockedDate.BlockedEndDate) {
-        const blockedStartTime = new Date(`1970-01-01T${blockedDate.BlockStartTime}:00`);
+        const blockedStartTime = new Date(`1970-01-01T${blockedDate.BlockStartTime}:00`); //converting blocked starttime to date objct
         const blockedEndTime = new Date(`1970-01-01T${blockedDate.BlockEndTime}:00`);
         return time >= blockedStartTime && time <= blockedEndTime;
       }
@@ -49,12 +49,12 @@ function App() {
     const endTimeObj = new Date(`1970-01-01T${endTime}:00`);
 
     while (currentTime < endTimeObj) {
-      const isBlocked = isTimeDuringBreak(currentTime) || isTimeBlocked(selectedDate, currentTime);
+      const isBlocked = isTimeDuringBreak(currentTime) || isTimeBlocked(selectedDate, currentTime);//checks if current time is blocked or during break
       if (!isBlocked) {
         const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
         timeSlots.push(timeString);
       }
-      currentTime = new Date(currentTime.getTime() + 15 * 60000); // Increment currentTime by 15 minutes
+      currentTime = new Date(currentTime.getTime() + 15 * 60000); //increment currentTime by 15 minutes
     }
 
     return timeSlots;
@@ -107,7 +107,6 @@ function App() {
             ) : (
               timeSlots.map((time, index) => (
                 <React.Fragment key={time}>
-                  {index % 4 === 0 && <div className="button-row" />}
                   <button
                     type="button"
                     className={`btn btn-outline-dark btn-lg ${selectedTime === time ? 'selected' : ''}`}
